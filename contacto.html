@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Portfolio RJP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="module" src="script.js"></script>
+    <!--font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--links a los archivos css-->
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+    <nav class="listaMenu">
+    <a class="home" href="index.html">RJP</a>
+      <button class="botonMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNavegacion">
+        <span class="botonMenuLinea"></span>
+        <span class="botonMenuLinea"></span>
+        <span class="botonMenuLinea"></span>
+      </button>
+
+  <ul class="listaMenuNavegacion" id="menuNavegacion">
+      <li><a class="link" href="#about">About</a></li>
+      <li><a class="link" href="#skills">Skills</a></li>
+      <li><a class="link" href="#proyectos">Proyectos en Progreso</a></li>
+      <li><a class="link" href="#recursos">Recursos</a></li>
+      <li><a class="link" href="#cheatsheets">Cheatsheet</a></li>
+      <li><a class="link" href="contacto.html">Contacto</a></li>
+    </ul>
+   </header>
+  <main class="principal">
+    <h2 class="titulillo">Contacto</h2>
+    <p class="textoLargo">¿Tienes alguna pregunta o propuesta? Rellena el formulario y me pondré en contacto contigo lo antes posible.</p>
+    <form class="captureInformation" action= "/captura de datos" method="POST">
+      <fieldset class="datospersonales">
+        <legend>Datos personales</legend>
+        <div class="cajaCampos">
+          <label class="etiquetaDelCampo" for="nombre">Nombre</label>
+          <input class="inputField" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="cajaCampos">
+          <label class="etiquetaDelCampo" for= "email">Email</label>
+          <input class="inputField" type="email" id="email" name="email" placeholder="tu_email@tumeail.com" required />
+        </div>
+        <div class="cajaCampos">
+          <label class="etiquetaDelCampo" for="asunto">Asunto</label>
+          <input class="inputField" type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje" required />
+        </div>
+        <div  class="cajaCampos">
+          <label class="etiquetaDelCampo" for= "mensaje">Mensaje</label>
+          <textarea class="textBox" id="mensaje" name="mensaje" rows="10" placeholder="Deja tu mensaje aqui..." required></textarea>
+        </div>
+        <button class="submitButton" type="submit">Enviar mensaje</button>
+        <button class="resetButton" type="reset">Borrar campos</button>
+    </fieldset>
+    </form>
+  </main>
+  <footer class="pieDePagina">
+    <p class="derechos"> © 2026 Roger Joan Pinazo - Marketing Automation & eComm Technology Consultant y aprendiz de Fullstack Developer</p>
+  </footer>
+</body>
+</html>
+
+

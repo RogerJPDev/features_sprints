@@ -1,0 +1,376 @@
+/*
+@import (this one must be first)
+:root variables
+General element styles (body, h1, a...)
+Layout and sections (header, main, footer)
+Components and classes (.listaMenu, .cajaCampos, .submitButton...)
+Media queries for mobile/desktop, at the end
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+  /* Main colors */
+    --primary:   #1E4FD8; /* strong royal blue: main buttons, links, key elements */
+    --secondary: #0F2A5F; /* deep navy: headers, footer, dark sections */
+    --accent:    #00B4D8; /* bright cyan: icons, badges, small details */
+    --highlight: #DCEBFF; /* soft light blue: hover states, selected rows, callouts */
+  /* Neutrals: greys and white */
+    --white:     #FFFFFF;
+    --gray-50:   #F5F7FA; /* page background */
+    --gray-100:  #E4E8EE; /* borders, dividers */
+    --gray-300:  #C3CAD5; /* disabled elements */
+    --gray-500:  #8A94A6; /* placeholder, secondary text */
+    --gray-700:  #4A5568; /* body text */
+    --gray-900:  #1A202C; /* headings, strongest text */
+  /*font variables*/
+    --font-main: "Roboto", sans-serif;
+    --fw-light:   300;
+    --fw-regular: 400;
+    --fw-medium:  500;
+    --fw-bold:    700;
+    --fw-black:   900;
+    --fs-sm:  0.875rem; /* 14px */
+    --fs-md:  1rem;     /* 16px */
+    --fs-lg:  1.25rem;  /* 20px */
+    --fs-xl:  1.5rem;   /* 24px */
+    --fs-2xl: 2rem;     /* 32px */
+    --fs-3xl: 2.5rem;   /* 40px */
+  /*radius variables*/
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 999px;
+  /*shadow variables*/
+    --shadow-sm: 0 1px 3px var(--gray-900);
+    --shadow-md: 0 4px 6px var(--gray-900);
+    --shadow-lg: 8px 8px 20px var(--gray-900);
+    --shadow-xl: 0 20px 40px var(--gray-900);
+  /*Layout*/
+    --max-width: 1000px;
+    --bar-height: 80px;
+  /*Spacing*/
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-side: 15px;
+  /*Borders*/
+    --border-subtle: 1px solid var(--gray-100);
+    --border-default: 1px solid var(--gray-300);
+    --border-strong: 1px solid var(--gray-700);
+  /*Transition*/
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  /*Buttons*/
+    --btn-padding: 10px 20px;
+  /*other variables*/
+    --bar-height: 80px;
+    --heart: #E63946;
+  }
+
+body {
+    font-family: var(--font-main);
+    font-weight: var(--fw-regular);
+  }
+/* llistat de class amb les que treballar */
+.encabezado {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: var(--bar-height);
+  padding: var(--space-lg);
+  border-bottom: var(--border-subtle);
+  background: var(--secondary);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+.listaMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.listaMenuNavegacion {
+    display: flex;
+    gap: 1.5rem;
+}
+.botonMenu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+.botonMenuLinea {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: var(--radius-sm);
+ }
+
+.home{
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-black);
+    color: var(--primary);
+    transition: color var(--transition-slow);
+  }
+.home:hover {
+    color: var(--highlight);
+  }
+.link{
+   position: relative;
+   color: var(--accent);
+   }
+.link::after {
+    content:"";
+    position: absolute;
+    left: 0px;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+  }
+ .presentacion {
+  text-align: left;
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-black);
+  color: var(--primary);
+  margin-bottom: var(--space-lg);
+  padding-left: 15px;
+}
+.principal {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-side);
+}
+.fotoPerfil{
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin: var(--space-lg) auto;
+ }
+  .rolLaboral{
+    text-align: left;
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-black);
+    color: var(--secondary);
+    margin-bottom: var(--space-lg);
+    padding-left: 15px;
+  }
+  
+  .titulillo{
+    text-align: left;
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-black);
+    color: var(--primary);
+    margin-bottom: var(--space-lg);
+    padding-left: 15px;
+  }
+
+  .secundario{
+    border: var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    box-shadow: var(--transition-fast);
+    transition: transform var(--transition-fast);
+
+  }
+  .secundario:hover{
+    transform: translate(-8px, -8px);
+    box-shadow: var(--shadow-xl)
+  }
+  .textoLargo{
+    text-align: left;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-regular);
+    color: var(--gray-700);
+    margin-bottom: 2rem;
+    padding-left: 15px;
+  }
+  .pieDePagina{
+    min-height: var(--bar-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+    background-color: var(--secondary);
+  }
+  .derechos {
+    color: var(--accent);
+    font-size: var(--fs-sm);
+    text-align: center;
+  }
+  .botones{
+    display:flex;
+    justify-content: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .botonRedes1{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+  }
+  .botonRedes1:hover{
+    background: var(--secondary);
+  }
+ .botonRedes2{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+  }
+  .botonRedes2:hover{
+    background: var(--secondary);
+  }
+
+  .firma{
+    text-align: center;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  .corazon{
+    display: inline-block;
+    color: var(--heart);
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  @keyframes heartbeat{
+    0% {transform: scale(1);}
+    14% {transform: scale(1.3);}
+    28% {transform: scale(1);}
+    42% {transform: scale(1.3);}
+    70% {transform: scale(1);}
+    100% {transform: scale(1);}
+  }
+  .captureInformation{
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 15px;
+  }
+
+  .datospersonales{
+    background: var(--white);
+    border: var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .datospersonales legend{
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--primary);
+    padding: 0 0.5rem;
+  }
+  .cajaCampos{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+  .etiquetaDelCampo {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    color: var(--secondary);
+  }
+  .inputField, .textBox {
+    display: block;
+    width:100%;
+    padding: 0.75rem;
+    font-family: var(--font-main);
+    font-size: var(--fs-md);
+    color: var(--gray-900);
+    background: var(--white);
+    border: var(--border-default);
+    transition: border-color var(--transition-fast);
+    }
+  .textBox{
+    resize: vertical;
+  }
+  .inputField:hover, .textBox:hover {
+    outline: 2px solid var(--accent);
+    border-color: var(--primary);
+
+  }
+  .submitButton,
+  .resetButton {
+    display: inline-block;
+    padding: var(--btn-padding);
+    margin-right: 1rem;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  }
+  .submitButton {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .submitButton:hover {
+    background: var(--secondary);
+    color: var(--white);
+  }
+  .resetButton {
+    background: var(--white);
+    color: var(--primary);
+  }
+  .resetButton:hover {
+    background: var(--highlight);
+  }
+  .submitButton:focus-visible,
+  .resetButton:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 768px) {
+    .botonMenu {
+        display: flex;
+      }
+    .listaMenuNavegacion {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+      }
+    .listaMenuNavegacion.abierto {
+        display: flex;
+      }
+    }
+  @media(min-width: 769px) and (hover: hover){
+      .link:hover::after {
+        transform: scaleX(1);
+      }
+   }
