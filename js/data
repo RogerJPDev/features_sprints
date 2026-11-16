@@ -1,0 +1,114 @@
+const skills = [
+  {
+    name: "HTML5",
+    icon: "https://cdn.simpleicons.org/html5/E34F26",
+    state: "dominada",
+    level: "intermedio",
+    description: "Estructura semántica y accesible para aplicaciones web.",
+    tags: ["Semantic HTML", "Accessibility", "SEO"]
+  },
+  {
+    name: "CSS",
+    icon: "https://cdn.simpleicons.org/css/663399",
+    state: "dominada",
+    level: "intermedio",
+    description: "Estilos modernos y diseño responsive para interfaces web.",
+    tags: ["Flexbox", "Grid", "Responsive Design"]
+  },
+  {
+    name: "APIs (Postman)",
+    icon: "https://cdn.simpleicons.org/postman/FF6C37",
+    state: "dominada",
+    level: "intermedio",
+    description: "Pruebas, documentación y consumo de APIs REST.",
+    tags: ["REST", "HTTP", "Testing"]
+  },
+  {
+    name: "Node.js",
+    icon: "https://cdn.simpleicons.org/nodedotjs/5FA04E",
+    state: "padawan",
+    level: "padawan",
+    description: "Entorno de ejecución de JavaScript del lado del servidor.",
+    tags: ["JavaScript", "npm", "Backend"]
+  },
+  {
+    name: "React",
+    icon: "https://cdn.simpleicons.org/react/61DAFB",
+    state: "padawan",
+    level: "padawan",
+    description: "Interfaces de usuario basadas en componentes reutilizables.",
+    tags: ["Components", "Hooks", "SPA"]
+  },
+  {
+    name: "Express",
+    icon: "https://cdn.simpleicons.org/express/000000",
+    state: "padawan",
+    level: "padawan",
+    description: "Framework minimalista de Node.js para crear servidores y APIs.",
+    tags: ["Routing", "Middleware", "REST API"]
+  },
+  {
+    name: "SQL",
+    icon: "https://cdn.simpleicons.org/mysql/4479A1",
+    state: "padawan",
+    level: "padawan",
+    description: "Consultas y modelado de bases de datos relacionales.",
+    tags: ["Queries", "Joins", "Relational DB"]
+  },
+  {
+    name: "MongoDB",
+    icon: "https://cdn.simpleicons.org/mongodb/47A248",
+    state: "padawan",
+    level: "padawan",
+    description: "Base de datos NoSQL orientada a documentos.",
+    tags: ["NoSQL", "Mongoose", "CRUD"]
+  },
+  {
+    name: "Git",
+    icon: "https://cdn.simpleicons.org/git/F05032",
+    state: "dominada",
+    level: "intermedio",
+    description: "Control de versiones para gestionar el historial del código.",
+    tags: ["Version Control", "Branching", "Merge"]
+  },
+  {
+    name: "GitHub",
+    icon: "https://cdn.simpleicons.org/github/181717",
+    state: "dominada",
+    level: "intermedio",
+    description: "Alojamiento de repositorios y trabajo colaborativo.",
+    tags: ["Pull Requests", "Collaboration", "GitHub Pages"]
+  },
+  {
+    name: "Jinja",
+    icon: "https://cdn.simpleicons.org/jinja/B41717",
+    state: "dominada",
+    level: "intermedio",
+    description: "Motor de plantillas de Python para generar contenido dinámico.",
+    tags: ["Templating", "Python", "Dynamic Content"]
+  },
+  {
+    name: "Liquid",
+    icon: "https://cdn.simpleicons.org/shopify/7AB55C",
+    state: "dominada",
+    level: "intermedio",
+    description: "Lenguaje de plantillas para contenido dinámico en Shopify y emails.",
+    tags: ["Templating", "Shopify", "Personalization"]
+  },
+  {
+    name: "AMPscript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg",
+    state: "padawan",
+    level: "padawan",
+    description: "Lenguaje de scripting de Salesforce Marketing Cloud para emails personalizados.",
+    tags: ["Marketing Cloud", "Email Personalization", "Data Extensions"]
+  },
+  {
+    name: "Handlebars",
+    icon: "https://cdn.simpleicons.org/handlebarsdotjs/000000",
+    state: "dominada",
+    level: "intermedio",
+    description: "Plantillas lógicas mínimas para renderizar HTML dinámico.",
+    tags: ["Templating", "Helpers", "Partials"]
+  }
+];
