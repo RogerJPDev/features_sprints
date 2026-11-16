@@ -1,26 +1,26 @@
 const btnHamburger = document.getElementById('botonMenu')
-const listaNavegacion = document.querySelector('.listaNavegacion')
+const listaNavegacion = document.querySelector('.listaMenuNavegacion')
 const navLinks = document.querySelectorAll('.link')
 
 btnHamburger.addEventListener('click', function (){
-    botonMenu.classList.toggle('open')
+    listaNavegacion.classList.toggle('abierto')
 
 })
 
 navLinks.forEach(function (link){
     link.addEventListener('click', function (){
-        listaNavegacion.classList.remove('open')
+        listaNavegacion.classList.remove('abierto')
     })
-}
-document.addEvenetListener('click', function (event){
+})
+document.addEventListener('click', function (event){
     if (
         !listaNavegacion.contains(event.target) &&
         !btnHamburger.contains(event.target)
     ) {
-        listaNavegacion.classList.remove('open')
+        listaNavegacion.classList.remove('abierto')
     }
 })
-
+/*
 export const header = 
 
     <header class="encabezado">
@@ -59,3 +59,4 @@ export const footer =
       </section>
     </footer>
     ;
+*/
