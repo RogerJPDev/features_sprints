@@ -2,7 +2,7 @@ const skills = [
   {
     name: "HTML5",
     icon: "https://cdn.simpleicons.org/html5/E34F26",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Estructura semántica y accesible para aplicaciones web.",
     tags: ["Semantic HTML", "Accessibility", "SEO"]
@@ -10,7 +10,7 @@ const skills = [
   {
     name: "CSS",
     icon: "https://cdn.simpleicons.org/css/663399",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Estilos modernos y diseño responsive para interfaces web.",
     tags: ["Flexbox", "Grid", "Responsive Design"]
@@ -18,7 +18,7 @@ const skills = [
   {
     name: "APIs (Postman)",
     icon: "https://cdn.simpleicons.org/postman/FF6C37",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Pruebas, documentación y consumo de APIs REST.",
     tags: ["REST", "HTTP", "Testing"]
@@ -66,7 +66,7 @@ const skills = [
   {
     name: "Git",
     icon: "https://cdn.simpleicons.org/git/F05032",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Control de versiones para gestionar el historial del código.",
     tags: ["Version Control", "Branching", "Merge"]
@@ -74,7 +74,7 @@ const skills = [
   {
     name: "GitHub",
     icon: "https://cdn.simpleicons.org/github/181717",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Alojamiento de repositorios y trabajo colaborativo.",
     tags: ["Pull Requests", "Collaboration", "GitHub Pages"]
@@ -82,7 +82,7 @@ const skills = [
   {
     name: "Jinja",
     icon: "https://cdn.simpleicons.org/jinja/B41717",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Motor de plantillas de Python para generar contenido dinámico.",
     tags: ["Templating", "Python", "Dynamic Content"]
@@ -90,7 +90,7 @@ const skills = [
   {
     name: "Liquid",
     icon: "https://cdn.simpleicons.org/shopify/7AB55C",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Lenguaje de plantillas para contenido dinámico en Shopify y emails.",
     tags: ["Templating", "Shopify", "Personalization"]
@@ -106,9 +106,62 @@ const skills = [
   {
     name: "Handlebars",
     icon: "https://cdn.simpleicons.org/handlebarsdotjs/000000",
-    state: "dominada",
+    state: "Dominada",
     level: "intermedio",
     description: "Plantillas lógicas mínimas para renderizar HTML dinámico.",
     tags: ["Templating", "Helpers", "Partials"]
   }
 ];
+
+const skillsToShow = document.querySelector('#skills-list');
+
+const skillsDominada = skills.filter((skill) => skill.state === 'Dominada');
+
+function showInScreenSkills (skillsDominada, skillsToShow){
+  for (let n = 0; n < skillsDominada.length; n++){
+    const box = document.createElement('div');
+    box.classList.add('skill-card');
+
+    const skillIcon = document.createElement('img');
+    skillIcon.src = skillsDominada[n].icon;
+    skillIcon.alt = `logo de ${skillsDominada[n].name}`;
+    skillIcon.classList.add('skill-icon');
+
+    const skillName = document.createElement('h3');
+    skillName.textContent = skillsDominada[n].name;
+    skillName.classList.add('skill-name');
+
+
+    const skillLevel = document.createElement('h4');
+    skillLevel.textContent = skillsDominada[n].state;
+    skillLevel.classList.add('skill-level');
+
+    const skillDescription = document.createElement('p');
+    skillDescription.textContent = skillsDominada[n].description;
+    skillDescription.classList.add('skill-description');
+    
+    const skillTagList = document.createElement('ul');
+    skillTagList.classList.add('tag-list');
+
+    for (let i = 0; i < skillsDominada[n].tags.length; i++){
+      
+        const skillTag = document.createElement('li');
+        skillTag.textContent = skillsDominada[n].tags[i];
+        skillTag.classList.add('tag')
+
+        skillTagList.appendChild(skillTag);
+    }
+    box.append(skillIcon, skillName, skillLevel, skillDescription, skillTagList);
+
+/*
+    box.appendChild(skillIcon);
+    box.appendChild(skillName);
+    box.appendChild(skillLevel);
+    box.appendChild(skillDescription);
+    box.appendChild(skillTagList);
+    */
+    skillsToShow.appendChild(box);
+  }
+  
+}
+showInScreenSkills(skillsDominada, skillsToShow);

@@ -223,7 +223,8 @@ body.dark .icon-moon { display: block; }
     margin-left: 5px;
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-fast);
-
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
   }
   .secundario:hover{
     transform: translate(-8px, -8px);
@@ -528,6 +529,78 @@ body.dark .icon-moon { display: block; }
   margin: 0;
 }
 
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background-color: var(--white);
+  border: var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.skill-card:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.skill-name {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--gray-900);
+}
+
+.skill-level {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.skill-description {
+  margin: 0;
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--gray-700);
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.tag {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  padding: calc(var(--space-xs) / 2) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
 body.dark .encabezado,
 body.dark .pieDePagina,
 body.dark .listaMenuNavegacion {
@@ -592,6 +665,37 @@ body.dark .resetButton:hover {
   background: rgba(0, 180, 216, 0.15);
 }
 
+body.dark .skill-card {
+  background-color: var(--secondary);
+  border-color: var(--gray-700);
+}
+
+body.dark .skill-card:hover {
+  border-color: var(--accent);
+}
+
+body.dark .skill-name {
+  color: var(--white);
+}
+
+body.dark .skill-level {
+  color: var(--accent);
+}
+
+body.dark .skill-description {
+  color: var(--gray-300);
+}
+
+body.dark .tag {
+  background-color: var(--gray-700);
+  color: var(--gray-100);
+}
+
+body.dark .skill-icon {
+  background-color: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
 
 @media (max-width: 768px) {
   .botonMenu {

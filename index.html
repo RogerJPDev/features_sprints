@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="script.js"></script>
     <title>Portfolio RJP</title>
     <link rel="icon" href="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" />
 
@@ -22,26 +21,24 @@
   <img class="fotoPerfil" src="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" alt="Foto retocada con IA para parecer un comic de Roger"/>
   <h1 class="presentacion">Roger Joan</h1>
     <main class="principal">
-      <section class="secundario" id="about">
+      <section class="tarjetaPlana" id="about">
       
       <h2 class="rolLaboral"> Marketing Automation & eComm Technology Consultant y aprendiz de Fullstack Developer</h2>
         <p class="textoLargo"> Soy Roger Joan. Llevo unos 15 años en el sector de IT encargándome de la gestión de servicios, proyectos y equipos. Empecé mi andadura en IT en una multinacional, como administrativo de servicios y fui adquiriendo conocimientos y evoluvionando mi rol hacia la gestión de proyectos y equipos.</p>
         <p class="textoLargo"> Al cabo de unos años, me di cuenta que lo que me gustaba más de IT era toquetear, así que decidí dar el salto e incorporarme a una consultora de Martech donde ahora hago proyectos de implementación y migración de plataformas Martech & eComm que ayudan a las empresas a mandar comunicaciones personalizadas como email y notificaciones push a sus clientes ya sean de marketing o de eCommerce.</p> 
        
       </section>
-      <section class="secundario" id="skills">
+      <section class="tarjetaPlana" id="skills">
         <h2 class="titulillo">Skills</h2>
-        <p class="textoLargo"> En estos ultimos años he tenido que aprender Jinja, basado en Python, Liquid basado en Ruby y otros lenguages de programación que permiten personalizar las comunicaciones de las empresas con información de sus clientes en tiempo real y al generar el envio de un email o notificación push.</p>
-        <p class="textoLargo">Hablo Inglés, Castellano y Catalán.</p>
-        <p class="textoLargo">Puedo correr una maratón en 3h45min y una media maratón en 1h50min</p>
+        <div id="skills-list" class="skills-grid"></div>
       </section>
-      <section class="secundario" id="proyectos">
+      <section class="tarjetaPlana" id="proyectos">
         <h2 class="titulillo">Proyectos en Progreso</h2>
       </section>
-      <section  class="secundario" id="recursos">
+      <section  class="tarjetaPlana" id="recursos">
       <h2 class="titulillo">Recursos</h2>
     </section>
-      <section  class="secundario" id="cheatsheets">
+      <section  class="tarjetaPlana" id="cheatsheets">
         <h2 class="titulillo">Cheatsheets</h2>
       </section>
       <section>
@@ -58,5 +55,6 @@
     <div id="footer"></div>
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/data.js"></script>
   </body>
 </html>
