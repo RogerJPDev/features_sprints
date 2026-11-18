@@ -4,7 +4,6 @@
     <title>Portfolio RJP</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="script.js"></script>
     <!--font family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,24 +13,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <header class="encabezado">
-    <nav class="listaMenu">
-    <a class="home" href="index.html">RJP</a>
-      <button class="botonMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNavegacion">
-        <span class="botonMenuLinea"></span>
-        <span class="botonMenuLinea"></span>
-        <span class="botonMenuLinea"></span>
-      </button>
-
-  <ul class="listaMenuNavegacion" id="menuNavegacion">
-      <li><a class="link" href="about.html">About</a></li>
-      <li><a class="link" href="index.html#skills">Skills</a></li>
-      <li><a class="link" href="index.html#proyectos">Proyectos en Progreso</a></li>
-      <li><a class="link" href="index.html#recursos">Recursos</a></li>
-      <li><a class="link" href="index.html#cheatsheets">Cheatsheet</a></li>
-      <li><a class="link" href="contacto.html">Contacto</a></li>
-    </ul>
-   </header>
+    <div id="header"></div>
   <main class="principal">
     <h2 class="titulillo">Contacto</h2>
     <p class="textoLargo">¿Tienes alguna pregunta o propuesta? Rellena el formulario y me pondré en contacto contigo lo antes posible.</p>
@@ -44,7 +26,7 @@
         </div>
         <div class="cajaCampos">
           <label class="etiquetaDelCampo" for= "email">Email</label>
-          <input class="inputField" type="email" id="email" name="email" placeholder="tu_email@tumeail.com" required />
+          <input class="inputField" type="email" id="email" name="email" placeholder="tu_email@tuemail.com" required />
         </div>
         <div class="cajaCampos">
           <label class="etiquetaDelCampo" for="asunto">Asunto</label>
@@ -58,11 +40,15 @@
         <button class="resetButton" type="reset">Borrar campos</button>
     </fieldset>
     </form>
-  </main>
-  <footer class="pieDePagina">
-    <p class="derechos"> © 2026 Roger Joan Pinazo - Marketing Automation & eComm Technology Consultant y aprendiz de Fullstack Developer</p>
-  </footer>
-</body>
+    <section>
+        <p class="firma"> Spread the <span class="corazon" role="img" aria-label="love">❤</span> by Roger </p>
+      </section>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
+  </body>
 </html>
+
 
 

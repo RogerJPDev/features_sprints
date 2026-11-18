@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="script.js"></script>
     <title>Portfolio RJP</title>
     <link rel="icon" href="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" />
 
@@ -17,25 +16,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 <body>
-     <header class="encabezado">
-        <nav class="listaMenu">
-            <a class="home" href="index.html">RJP</a>
-                <button class="botonMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNavegacion">
-                    <span class="botonMenuLinea"></span>
-                    <span class="botonMenuLinea"></span>
-                    <span class="botonMenuLinea"></span>
-                </button>
-  
-            <ul class="listaMenuNavegacion" id="menuNavegacion">
-                <li><a class="link" href="about.html">About</a></li>
-                <li><a class="link" href="index.html#skills">Skills</a></li>
-                <li><a class="link" href="index.html#proyectos">Proyectos en Progreso</a></li>
-                <li><a class="link" href="index.html#recursos">Recursos</a></li>
-                <li><a class="link" href="index.html#cheatsheets">Cheatsheet</a></li>
-                <li><a class="link" href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+     <div id="header"></div>
     <main class="principal">
         <section class="primario" id="about">
             <h1 class="presentacion barraTitulo">Sobre mí</h1>
@@ -223,10 +204,8 @@
             
         
     </main>
-    <footer class="pieDePagina">
-      <section>
-        <p class="derechos"> © 2026 Roger Joan Pinazo - Marketing Automation & eComm Technology Consultant y aprendiz de Fullstack Developer</p>
-      </section>
-    </footer>
-</body>
+    <div id="footer"></div>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
+  </body>
 </html>
