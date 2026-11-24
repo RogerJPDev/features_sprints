@@ -601,6 +601,62 @@ body.dark .icon-moon { display: block; }
   padding: calc(var(--space-xs) / 2) var(--space-xs);
   border-radius: var(--radius-sm);
 }
+
+.cheatsheet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background-color: var(--white);
+  border: var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cheatsheet-card:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cheatsheet-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.cheatsheet-name {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--gray-900);
+}
+
+.cheatsheet-description {
+  margin: 0;
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--gray-700);
+}
+
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+/*missing matching colors & darkmode*/
+
+}
+
 body.dark .encabezado,
 body.dark .pieDePagina,
 body.dark .listaMenuNavegacion {
@@ -692,6 +748,38 @@ body.dark .tag {
 }
 
 body.dark .skill-icon {
+  background-color: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
+
+body.dark .cheatsheet-card {
+  background-color: var(--secondary);
+  border-color: var(--gray-700);
+}
+
+body.dark .cheatsheet-card:hover {
+  border-color: var(--accent);
+}
+
+body.dark .cheatsheet-name {
+  color: var(--white);
+}
+
+body.dark .cheatsheet-level {
+  color: var(--accent);
+}
+
+body.dark .cheatsheet-description {
+  color: var(--gray-300);
+}
+
+/*body.dark .tag {
+  background-color: var(--gray-700);
+  color: var(--gray-100);
+}*/
+
+body.dark .cheatsheet-icon {
   background-color: var(--gray-100);
   border-radius: var(--radius-sm);
   padding: 4px;

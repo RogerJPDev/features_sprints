@@ -113,6 +113,28 @@ const skills = [
   }
 ];
 
+const cheatsheet = [
+  {
+    name: "HTML5",
+    icon: "https://cdn.simpleicons.org/html5/E34F26",
+    link: "/cheatsheet_HTML.html"
+  },
+
+  {
+    name: "CSS3",
+    icon: "https://cdn.simpleicons.org/css/3178C6",
+    link: "/cheatsheet_CSS.html"
+  },
+
+    {
+    name: "JavaScript",
+    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    link: "/cheatsheet_JS.html",
+  }
+
+
+]
+
 const skillsToShow = document.querySelector('#skills-list');
 
 const skillsDominada = skills.filter((skill) => skill.state === 'Dominada');
@@ -165,3 +187,35 @@ function showInScreenSkills (skillsDominada, skillsToShow){
   
 }
 showInScreenSkills(skillsDominada, skillsToShow);
+
+const cheatsheetsToShow = document.querySelector('#cheatsheet-list');
+
+function showInScreenCheatsheets (cheatsheets, cheatsheetsToShow){
+  cheatsheets.forEach(cheatsheet =>{
+    const box = document.createElement('a');
+    box.href = cheatsheet.link;
+    box.target="_blank";
+    box.rel="noopener noreferrer";
+    box.classList.add('cheatsheet-card');
+    
+    const cheatsheetIcon = document.createElement('img');
+    cheatsheetIcon.src = cheatsheet.icon;
+    cheatsheetIcon.alt = `logo de ${cheatsheet.name}`;
+    cheatsheetIcon.classList.add('cheatsheet-icon');
+
+    const cheatsheetName = document.createElement('h3');
+    cheatsheetName.textContent = cheatsheet.name;
+    cheatsheetName.classList.add('cheatsheet-name');
+
+    const cheatsheetDescription = document.createElement('p');
+    cheatsheetDescription.textContent =`Guia rapida de referencia sobre ${cheatsheet.name}`;
+    cheatsheetDescription.classList.add('cheatsheet-description');
+
+  box.append(cheatsheetIcon, cheatsheetName, cheatsheetDescription);
+  cheatsheetsToShow.appendChild(box)
+  }
+
+)}
+
+showInScreenCheatsheets(cheatsheet, cheatsheetsToShow);
+console.log(cheatsheetsToShow)

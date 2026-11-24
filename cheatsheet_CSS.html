@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio RJP</title>
+    <link rel="icon" href="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" />
+
+    <!--font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--links a los archivos css-->
+
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+      <main class="principal">
+        <section class="primario" id="about">
+        <nav class="navbar">
+          <div>
+            <ul>
+              <li><a href= #selectors>Selectors & the cascade</a></li>
+              <li><a href= #>The box model</a></li>
+              <li><a href=#>Flexbox</a></li>
+              <li><a href=#>Grid</a></li>
+              <li><a href=#>Responsive design</a></li>
+              <li><a href=#>Visual effects</a></li>
+              <li><a href=#>Architecture & advanced</a></li>
+            </ul>
+          </div>
+        </nav>
+        <h1 class="presentacion barraTitulo">CSS</h1>
+          <p class="textoLargo">Aquí tienes una guía rápida de CSS moderno: selectores, texto, colores/fondos, box model, display/position, flexbox, grid, transiciones, animaciones y media queries</p>
+        </section>
+          <article class="tarjetaPlana">
+            <h2 class="titulillo" id="selectors">Selectors & the cascade</h2>
+            <h3 class="tituloLaboral">Core selectors</h3>
+            
+            <p class="textoLargo">
+            <pre><code class="textoLargo">
+                p { }              /* every &ltp&gt */
+                .card { }          /* class="card" */
+                #hero { }          /* id="hero" */
+                div p { }          /* p inside a div, any depth */
+                div > p { }        /* p that is a direct child of div */
+                h2 + p { }         /* p immediately after an h2 */
+                h2 ~ p { }         /* every p that follows an h2 as a sibling */
+                a, button { }      /* a AND button */
+                input[type="text"] { }   /* attribute equals */
+                a[href^="https"] { }     /* attribute starts with */
+                a[href$=".pdf"] { }      /* attribute ends with */
+                a[class~="tag"] { }      /* attribute contains word */
+              </code></pre>
+            </p>
+            
+            
+
+        </article>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <section>
+        <p class="firma"> Spread the <span class="corazon" role="img" aria-label="love">❤</span> by Roger </p>
+      </section>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/data.js"></script>
+  </body>
+</html>
