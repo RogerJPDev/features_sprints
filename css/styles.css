@@ -111,20 +111,21 @@ body.dark #toggle:hover{
 body.dark .icon-sun  { display: none; }
 body.dark .icon-moon { display: block; }
 
-
 /* llistat de class amb les que treballar */
 .encabezado {
   position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 110;
+  height: var(--bar-height);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  min-height: var(--bar-height);
+  height: var(--bar-height);
+  box-sizing: border-box;
   padding: var(--space-lg);
   border-bottom: var(--border-subtle);
   background: var(--secondary);
   box-shadow: var(--shadow-md);
-  z-index: 100;
 }
 .listaMenu {
   display: flex;
@@ -400,6 +401,11 @@ body.dark .icon-moon { display: block; }
     linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(135deg, var(--primary), var(--accent)) border-box;
 }
+
+.tarjetaPlana pre {
+  overflow-x: auto;
+}
+
 .polaroid {
   width: 400px;
   max-width: calc(100% - 2rem);
@@ -601,6 +607,86 @@ body.dark .icon-moon { display: block; }
   padding: calc(var(--space-xs) / 2) var(--space-xs);
   border-radius: var(--radius-sm);
 }
+
+.cheatsheet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background-color: var(--white);
+  border: var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cheatsheet-card:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cheatsheet-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.cheatsheet-name {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--gray-900);
+}
+
+.cheatsheet-description {
+  margin: 0;
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--gray-700);
+}
+
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.navbar {
+  position: sticky;
+  display:flex;
+  top: var(--bar-height);
+  z-index: 100;
+  background: var(--secondary)
+/*missing matching colors & darkmode*/
+
+}
+
+[id] {
+  scroll-margin-top: calc(var(--bar-height) + 90px); 
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;          
+  justify-content: center;
+  gap: var(--space-sm) var(--space-md);   
+  padding: var(--space-xs) var(--space-side);
+  list-style: none;
+}
+
+.navbar a {
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  white-space: nowrap;     
+}
+
+.navbar a:hover {
+  color: var(--highlight);
+}
+
 body.dark .encabezado,
 body.dark .pieDePagina,
 body.dark .listaMenuNavegacion {
@@ -697,6 +783,139 @@ body.dark .skill-icon {
   padding: 4px;
 }
 
+body.dark .cheatsheet-card {
+  background-color: var(--secondary);
+  border-color: var(--gray-700);
+}
+
+body.dark .cheatsheet-card:hover {
+  border-color: var(--accent);
+}
+
+body.dark .cheatsheet-name {
+  color: var(--white);
+}
+
+body.dark .cheatsheet-level {
+  color: var(--accent);
+}
+
+body.dark .cheatsheet-description {
+  color: var(--gray-300);
+}
+
+/*body.dark .tag {
+  background-color: var(--gray-700);
+  color: var(--gray-100);
+}*/
+
+body.dark .cheatsheet-icon {
+  background-color: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
+
+.recursosTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 0 15px;
+  margin-bottom: var(--space-lg);
+}
+
+
+.tabRecurso {
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--secondary);
+  background: transparent;
+  border: 2px solid var(--gray-100);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.tabRecurso:hover {
+  background: var(--highlight);
+  border-color: var(--highlight);
+}
+.tabRecurso:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+.tabRecurso.tabActiva {
+  color: var(--white);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+
+.recursosPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+  padding: 0 15px;
+  margin-bottom: var(--space-lg);
+}
+
+
+.tarjetaRecurso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(135deg, var(--gray-100), var(--gray-100)) border-box;
+  transition: transform var(--transition-base);
+  animation: aparecerRecurso var(--transition-slow) both;
+}
+.tarjetaRecurso:hover {
+  transform: translateY(-4px);
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+}
+.tarjetaRecursoTitulo {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-black);
+  color: var(--secondary);
+}
+.tarjetaRecursoNota {
+  margin: 0;
+  flex-grow: 1; 
+  font-size: var(--fs-md);
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+.tarjetaRecursoUrl {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--primary);
+}
+
+@keyframes aparecerRecurso {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabRecurso,
+  .tarjetaRecurso {
+    transition: none;
+    animation: none;
+  }
+}
+
+
 @media (max-width: 768px) {
   .botonMenu {
     display: flex;
@@ -738,6 +957,17 @@ body.dark .skill-icon {
   .listaPuntos li::before {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .recursosTabs {
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    padding-bottom: var(--space-sm);
+  }
+  .tabRecurso {
+    flex-shrink: 0;
   }
 }
 

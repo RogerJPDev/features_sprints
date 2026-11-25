@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio RJP</title>
+    <link rel="icon" href="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" />
+
+    <!--font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--links a los archivos css-->
+
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+      <main class="principal">
+        <nav class="navbar">
+          <div>
+            <ul>
+            <ul>
+              <li><a class="titulillo" href="#selectors">Selectors & the cascade</a></li>
+              <li><a class="titulillo" href="#box-model">The box model</a></li>
+              <li><a class="titulillo" href="#flexbox">Flexbox</a></li>
+              <li><a class="titulillo" href="#grid">Grid</a></li>
+              <li><a class="titulillo" href="#responsive">Responsive design</a></li>
+              <li><a class="titulillo" href="#visual-effects">Visual effects</a></li>
+              <li><a class="titulillo" href="#architecture">Architecture & advanced</a></li>
+            </ul>
+          </div>
+        </nav>
+        <h1 class="presentacion barraTitulo">CSS</h1>
+          <p class="textoLargo">Aquí tienes una guía rápida de CSS moderno: selectores, texto, colores/fondos, box model, display/position, flexbox, grid, transiciones, animaciones y media queries</p>
+        </section>
+        <h2 class="titulillo" id="selectors">Selectors & the cascade</h2>
+                <h2 class="titulillo" id="selectors">Selectors & the cascade</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Core selectors</h3>
+              <pre><code>
+                p { }              /* every &lt;p&gt; */
+                .card { }          /* class="card" */
+                #hero { }          /* id="hero" */
+                div p { }          /* p inside a div, any depth */
+                div &gt; p { }        /* p that is a direct child of div */
+                h2 + p { }         /* p immediately after an h2 */
+                h2 ~ p { }         /* every p that follows an h2 as a sibling */
+                a, button { }      /* a AND button */
+                input[type="text"] { }   /* attribute equals */
+                a[href^="https"] { }     /* attribute starts with */
+                a[href$=".pdf"] { }      /* attribute ends with */
+                a[class~="tag"] { }      /* attribute contains word */
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Pseudo-classes</h3>
+              <pre><code>
+                a:hover { }
+                button:focus { }
+                input:disabled { }
+                input:checked { }
+                li:first-child { }
+                li:last-child { }
+                li:nth-child(2n) { }     /* every even item */
+                li:nth-child(odd) { }
+                p:first-of-type { }
+                li:only-child { }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Pseudo-elements</h3>
+              <pre><code>
+                p::first-line { font-weight: bold; }
+                p::first-letter { font-size: 2em; }
+                .quote::before { content: "\201C"; }
+                .quote::after { content: "\201D"; }
+                input::placeholder { color: #999; }
+                ::selection { background: yellow; }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Specificity</h3>
+              <pre><code>
+                /* specificity 0-0-1 */
+                p { color: black; }
+
+                /* specificity 0-1-0 — wins over the rule above */
+                .intro { color: blue; }
+
+                /* specificity 1-0-0 — wins over both */
+                #lead { color: red; }
+
+                /* !important overrides normal specificity entirely — avoid it */
+                p { color: green !important; }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Colors & units</h3>
+              <pre><code>
+                color: #1e293b;             /* hex */
+                color: rgb(30 41 59);       /* rgb */
+                color: rgb(30 41 59 / 50%); /* with alpha */
+                color: hsl(222 47% 18%);
+
+                width: 320px;   /* fixed pixels */
+                width: 20rem;   /* relative to root font-size */
+                width: 2em;     /* relative to this element's font-size */
+                width: 50%;     /* relative to parent */
+                width: 100vw;   /* relative to viewport width */
+                width: 50ch;    /* relative to the "0" character width */
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="box-model">The box model</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">box-sizing</h3>
+              <pre><code>
+                * { box-sizing: border-box; }
+
+                .box {
+                  width: 300px;
+                  padding: 20px;
+                  border: 2px solid #ccc;
+                  /* total rendered width stays 300px, not 344px */
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Margin & padding shorthand</h3>
+              <pre><code>
+                margin: 10px;                 /* all sides */
+                margin: 10px 20px;            /* vertical | horizontal */
+                margin: 10px 20px 5px 0;      /* top right bottom left */
+                margin: 0 auto;                /* center a block horizontally */
+
+                padding-block: 12px;          /* top + bottom (logical) */
+                padding-inline: 20px;         /* left + right (logical) */
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Display</h3>
+              <pre><code>
+                display: block;         /* full width, starts new line */
+                display: inline;        /* flows with text, ignores width/height */
+                display: inline-block;  /* flows with text, but sizable */
+                display: none;          /* removed from layout entirely */
+                display: flex;
+                display: grid;
+                visibility: hidden;     /* hidden but still takes up space */
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Borders, radius & shadows</h3>
+              <pre><code>
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                border-radius: 50%;                 /* circle, on a square box */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+                box-shadow: inset 0 0 0 2px #6366f1; /* inner ring */
+                outline: 2px solid #6366f1;          /* doesn't affect layout, unlike border */
+                outline-offset: 2px;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Overflow</h3>
+              <pre><code>
+                overflow: hidden;   /* clip content that doesn't fit */
+                overflow: scroll;   /* always show scrollbars */
+                overflow: auto;     /* scrollbars only when needed */
+                overflow-x: auto;
+                overflow-y: hidden;
+                text-overflow: ellipsis; /* needs overflow:hidden + white-space:nowrap */
+                white-space: nowrap;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="flexbox">Flexbox</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Container properties</h3>
+              <pre><code>
+                .row {
+                  display: flex;
+                  flex-direction: row;       /* or column, row-reverse, column-reverse */
+                  justify-content: space-between; /* main axis */
+                  align-items: center;            /* cross axis */
+                  flex-wrap: wrap;
+                  gap: 16px;
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Item properties</h3>
+              <pre><code>
+                .item {
+                  flex: 1;                /* grow to fill available space, equally */
+                  flex-grow: 0;
+                  flex-shrink: 0;         /* never shrink below its base size */
+                  flex-basis: 200px;      /* starting size before growing/shrinking */
+                  align-self: flex-start; /* override align-items for one item */
+                  order: -1;              /* reorder without touching the HTML */
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Common pattern: centered card</h3>
+              <pre><code>
+                .center {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Common pattern: navbar with pushed-right items</h3>
+              <pre><code>
+                .navbar {
+                  display: flex;
+                  align-items: center;
+                  gap: 24px;
+                }
+                .navbar .spacer { margin-left: auto; } /* pushes everything after it right */
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="grid">Grid</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Defining a grid</h3>
+              <pre><code>
+                .layout {
+                  display: grid;
+                  grid-template-columns: 200px 1fr;   /* sidebar + content */
+                  grid-template-rows: auto 1fr auto;
+                  gap: 24px;
+                }
+
+                .responsive-cards {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                  gap: 20px;
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">minmax(), auto-fill vs auto-fit</h3>
+              <pre><code>
+                grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 equal columns */
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Placing items</h3>
+              <pre><code>
+                .header { grid-column: 1 / -1; }   /* span all columns */
+                .sidebar { grid-row: 2 / 4; }
+                .item { grid-column: span 2; }
+
+                .hero { grid-area: hero; }         /* pairs with grid-template-areas */
+                .layout {
+                  grid-template-areas:
+                    "hero  hero"
+                    "side  main";
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Subgrid</h3>
+              <pre><code>
+                .card {
+                  display: grid;
+                  grid-template-rows: subgrid;
+                  grid-row: span 3;
+                }
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="responsive">Responsive design</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Media queries, mobile-first</h3>
+              <pre><code>
+                .card { padding: 12px; }
+
+                @media (min-width: 640px) {
+                  .card { padding: 24px; }
+                }
+
+                @media (min-width: 1024px) {
+                  .card { padding: 32px; }
+                }
+
+                @media (orientation: landscape) { }
+                @media print { .no-print { display: none; } }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Container queries</h3>
+              <pre><code>
+                .sidebar {
+                  container-type: inline-size;
+                  container-name: sidebar;
+                }
+
+                @container sidebar (min-width: 300px) {
+                  .card { flex-direction: row; }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Fluid type & clamp()</h3>
+              <pre><code>
+                h1 {
+                  font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
+                  /* min, preferred (scales with viewport), max */
+                }
+                .container {
+                  width: min(90%, 1200px); /* whichever is smaller */
+                  padding: max(16px, 3vw);
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">aspect-ratio & object-fit</h3>
+              <pre><code>
+                .thumbnail {
+                  aspect-ratio: 16 / 9;
+                  object-fit: cover;      /* crop to fill, keep proportions */
+                  object-position: top;
+                }
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="visual-effects">Visual effects</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Gradients</h3>
+              <pre><code>
+                background: linear-gradient(135deg, #6366f1, #ec4899);
+                background: radial-gradient(circle at top left, #fff, #e5e7eb);
+                background: conic-gradient(from 90deg, red, yellow, lime, red);
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Filters & backdrop-filter</h3>
+              <pre><code>
+                img { filter: grayscale(1) brightness(0.9); }
+                .card:hover { filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
+
+                .glass {
+                  background: rgba(255,255,255,0.1);
+                  backdrop-filter: blur(12px);
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Transitions & animations</h3>
+              <pre><code>
+                .button {
+                  transition: transform 0.15s ease, background 0.15s ease;
+                }
+                .button:hover { transform: translateY(-2px); }
+
+                @keyframes fade-in {
+                  from { opacity: 0; transform: translateY(8px); }
+                  to   { opacity: 1; transform: translateY(0); }
+                }
+                .toast { animation: fade-in 0.3s ease-out; }
+                .spinner { animation: spin 1s linear infinite; }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Transforms</h3>
+              <pre><code>
+                transform: translateX(12px);
+                transform: scale(1.05);
+                transform: rotate(3deg);
+                transform: translate(-50%, -50%); /* common centering trick */
+                transform: skew(-5deg);
+                transform-origin: top left;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Scroll-snap</h3>
+              <pre><code>
+                .gallery {
+                  display: flex;
+                  overflow-x: auto;
+                  scroll-snap-type: x mandatory;
+                }
+                .gallery img {
+                  scroll-snap-align: center;
+                }
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="architecture">Architecture & advanced</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Custom properties (variables)</h3>
+              <pre><code>
+                :root {
+                  --accent: #6366f1;
+                  --gap: 1rem;
+                }
+
+                .button {
+                  background: var(--accent);
+                  padding: var(--gap);
+                }
+
+                @media (prefers-color-scheme: dark) {
+                  :root { --accent: #818cf8; }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Modern selectors: :is, :where, :has, :not</h3>
+              <pre><code>
+                :is(h1, h2, h3) { font-weight: 700; }
+                :where(ul, ol) { margin: 0; }
+                p:not(.muted) { color: #111; }
+
+                /* style a card differently if it contains an image */
+                .card:has(img) { grid-template-rows: auto 1fr; }
+                /* style a form field's wrapper when it's invalid */
+                .field:has(:invalid) { border-color: red; }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Native nesting</h3>
+              <pre><code>
+                .card {
+                  padding: 16px;
+                  &amp;:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+                  &amp; .title { font-weight: 600; }
+                  &amp;.featured { border-color: var(--accent); }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">@supports feature queries</h3>
+              <pre><code>
+                @supports (display: grid) {
+                  .layout { display: grid; }
+                }
+                @supports not (aspect-ratio: 1) {
+                  .square::before { content: ""; display: block; padding-top: 100%; }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">@font-face</h3>
+              <pre><code>
+                @font-face {
+                  font-family: "Inter";
+                  src: url("inter.woff2") format("woff2");
+                  font-weight: 400 700;
+                  font-display: swap;
+                }
+                body { font-family: "Inter", system-ui, sans-serif; }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Stacking context & z-index</h3>
+              <pre><code>
+                .modal {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 100;
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">BEM naming & a minimal reset</h3>
+              <pre><code>
+                /* BEM: block__element--modifier */
+                .card { }
+                .card__title { }
+                .card__title--large { }
+                .card--featured { }
+
+                /* minimal reset */
+                *, *::before, *::after { box-sizing: border-box; }
+                body { margin: 0; }
+                img, video { max-width: 100%; display: block; }
+              </code></pre>
+          </article>
+      <section>
+        <p class="firma"> Spread the <span class="corazon" role="img" aria-label="love">❤</span> by Roger </p>
+      </section>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/data.js"></script>
+  </body>
+</html>

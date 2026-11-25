@@ -24,7 +24,7 @@ export const header = `
         <li><a class="link" href="about.html">About</a></li>
         <li><a class="link" href="index.html#skills">Skills</a></li>
         <li><a class="link" href="index.html#proyectos">Proyectos en Progreso</a></li>
-        <li><a class="link" href="index.html#recursos">Recursos</a></li>
+        <li><a class="link" href="recursos.html">Recursos</a></li>
         <li><a class="link" href="index.html#cheatsheets">Cheatsheet</a></li>
         <li><a class="link" href="contacto.html">Contacto</a></li>
       </ul>
@@ -40,3 +40,5 @@ export const footer = `
       </section>
     </footer> `
     ;
+
+    

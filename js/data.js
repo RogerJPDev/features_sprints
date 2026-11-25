@@ -113,6 +113,91 @@ const skills = [
   }
 ];
 
+const cheatsheet = [
+  {
+    name: "HTML5",
+    icon: "https://cdn.simpleicons.org/html5/E34F26",
+    link: "/cheatsheet_HTML.html"
+  },
+
+  {
+    name: "CSS3",
+    icon: "https://cdn.simpleicons.org/css/3178C6",
+    link: "/cheatsheet_CSS.html"
+  },
+
+    {
+    name: "JavaScript",
+    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    link: "/cheatsheet_JS.html",
+  }
+
+
+]
+
+export const resources = [
+  {
+    category: "Documentación Oficial",
+    items: [
+      { title: "MDN Web Docs", url: "https://developer.mozilla.org/es/", note: "La referencia de cabecera para HTML, CSS y JavaScript." },
+      { title: "W3C Specifications", url: "https://www.w3.org/TR/", note: "Especificaciones oficiales de los estándares web." },
+      { title: "Can I Use", url: "https://caniuse.com/", note: "Compatibilidad de cada funcionalidad entre navegadores." },
+      { title: "DevDocs", url: "https://devdocs.io/", note: "Muchas documentaciones en una sola interfaz, también offline." },
+      { title: "FormSubmit", url: "https://formsubmit.co/", note: "Envía formularios HTML a tu email sin backend." }
+    ]
+  },
+  {
+    category: "Aprendizaje",
+    items: [
+      { title: "freeCodeCamp", url: "https://www.freecodecamp.org/espanol/", note: "Cursos gratuitos y certificaciones con práctica guiada." },
+      { title: "JavaScript.info", url: "https://es.javascript.info/", note: "Tutorial moderno de JavaScript, de lo básico a lo avanzado." },
+      { title: "CSS-Tricks", url: "https://css-tricks.com/", note: "Artículos y guías de CSS, famosas las de Flexbox y Grid." },
+      { title: "Web.dev", url: "https://web.dev/", note: "Guías de Google sobre rendimiento, buenas prácticas y CSS." },
+      { title: "Frontend Masters", url: "https://frontendmasters.com/", note: "Cursos en vídeo en profundidad impartidos por expertos." }
+    ]
+  },
+  {
+    category: "Herramientas",
+    items: [
+      { title: "VS Code", url: "https://code.visualstudio.com/", note: "Editor de código gratuito con miles de extensiones." },
+      { title: "GitHub", url: "https://github.com/", note: "Alojamiento de repositorios Git y colaboración." },
+      { title: "CodePen", url: "https://codepen.io/", note: "Editor online para probar y compartir HTML, CSS y JS." },
+      { title: "Figma", url: "https://www.figma.com/", note: "Diseño de interfaces y prototipos colaborativos." },
+      { title: "Netlify", url: "https://www.netlify.com/", note: "Despliegue de webs estáticas directamente desde Git." }
+    ]
+  },
+  {
+    category: "Accesibilidad",
+    items: [
+      { title: "WCAG Guidelines", url: "https://www.w3.org/WAI/standards-guidelines/wcag/es", note: "Pautas oficiales de accesibilidad del contenido web." },
+      { title: "WebAIM", url: "https://webaim.org/", note: "Artículos, checklists y verificador de contraste." },
+      { title: "WAVE Tool", url: "https://wave.webaim.org/", note: "Evalúa la accesibilidad de una página de forma visual." },
+      { title: "Axe DevTools", url: "https://www.deque.com/axe/devtools/", note: "Extensión del navegador para auditar accesibilidad." }
+    ]
+  },
+  {
+    category: "Blogs & Comunidades",
+    items: [
+      { title: "Smashing Magazine", url: "https://www.smashingmagazine.com/", note: "Artículos de calidad sobre desarrollo y diseño web." },
+      { title: "A List Apart", url: "https://alistapart.com/", note: "Revista clásica sobre diseño, desarrollo y contenido web." },
+      { title: "Dev.to", url: "https://dev.to/", note: "Comunidad de desarrolladores que comparten artículos." },
+      { title: "Stack Overflow", url: "https://es.stackoverflow.com/", note: "Preguntas y respuestas para resolver dudas de código." },
+      { title: "Frontend Focus", url: "https://frontendfoc.us/", note: "Newsletter semanal con novedades del mundo frontend." }
+    ]
+  },
+  {
+    category: "Inspiración & Design",
+    items: [
+      { title: "Awwwards", url: "https://www.awwwards.com/", note: "Premios y galería de las webs mejor diseñadas." },
+      { title: "Dribbble", url: "https://dribbble.com/", note: "Comunidad de diseñadores con shots de UI e ilustración." },
+      { title: "Behance", url: "https://www.behance.net/", note: "Portfolios creativos completos de diseñadores." },
+      { title: "Coolors", url: "https://coolors.co/", note: "Generador rápido de paletas de colores." },
+      { title: "Google Fonts", url: "https://fonts.google.com/", note: "Tipografías web gratuitas y fáciles de integrar." }
+    ]
+  }
+];
+
+
 const skillsToShow = document.querySelector('#skills-list');
 
 const skillsDominada = skills.filter((skill) => skill.state === 'Dominada');
@@ -164,4 +249,39 @@ function showInScreenSkills (skillsDominada, skillsToShow){
   }
   
 }
-showInScreenSkills(skillsDominada, skillsToShow);
+if (skillsToShow) {
+  showInScreenSkills(skillsDominada, skillsToShow);
+};
+
+const cheatsheetsToShow = document.querySelector('#cheatsheet-list');
+
+function showInScreenCheatsheets (cheatsheets, cheatsheetsToShow){
+  cheatsheets.forEach(cheatsheet =>{
+    const box = document.createElement('a');
+    box.href = cheatsheet.link;
+    box.target="_blank";
+    box.rel="noopener noreferrer";
+    box.classList.add('cheatsheet-card');
+    
+    const cheatsheetIcon = document.createElement('img');
+    cheatsheetIcon.src = cheatsheet.icon;
+    cheatsheetIcon.alt = `logo de ${cheatsheet.name}`;
+    cheatsheetIcon.classList.add('cheatsheet-icon');
+
+    const cheatsheetName = document.createElement('h3');
+    cheatsheetName.textContent = cheatsheet.name;
+    cheatsheetName.classList.add('cheatsheet-name');
+
+    const cheatsheetDescription = document.createElement('p');
+    cheatsheetDescription.textContent =`Guia rapida de referencia sobre ${cheatsheet.name}`;
+    cheatsheetDescription.classList.add('cheatsheet-description');
+
+  box.append(cheatsheetIcon, cheatsheetName, cheatsheetDescription);
+  cheatsheetsToShow.appendChild(box)
+  }
+
+)}
+
+if (cheatsheetsToShow) {
+  showInScreenCheatsheets(cheatsheet, cheatsheetsToShow);
+};

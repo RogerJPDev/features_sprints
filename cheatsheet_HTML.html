@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio RJP</title>
+    <link rel="icon" href="https://res.cloudinary.com/hymqx3fl/image/upload/v1792659935/caricatura_roger_marvel.png" />
+
+    <!--font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--links a los archivos css-->
+
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+      <main class="principal">
+        <nav class="navbar">
+          <div>
+            <ul>
+              <li><a class="titulillo" href="#skeleton">Document skeleton</a></li>
+              <li><a class="titulillo" href="#text-structure">Text & structure</a></li>
+              <li><a class="titulillo" href="#forms">Forms</a></li>
+              <li><a class="titulillo" href="#semantic">Semantic layout</a></li>
+              <li><a class="titulillo" href="#media">Media & embedding</a></li>
+              <li><a class="titulillo" href="#storage-apis">Browser storage & APIs</a></li>
+              <li><a class="titulillo" href="#accessibility">Advanced & accessibility</a></li>
+            </ul>
+          </div>
+        </nav>
+        <section class="primario" id="about">
+          <h1 class="presentacion barraTitulo">HTML</h1>
+             <p class="textoLargo">Aquí tienes una guía rápida para escribir HTML moderno y semántico: estructura, meta, texto, enlaces, listas, multimedia, tablas, formularios, accesibilidad y buenas prácticas.</p>
+        </section>
+         <h2 class="titulillo" id="skeleton">Document skeleton</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Boilerplate</h3>
+              <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                  &lt;meta charset="UTF-8"&gt;
+                  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                  &lt;title&gt;Page title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                  &lt;!-- visible content goes here --&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Elements, tags & attributes</h3>
+              <pre><code>
+                &lt;p class="intro" id="lead"&gt;Hello, world!&lt;/p&gt;
+                &lt;img src="cat.jpg" alt="A sleeping cat"&gt;
+                &lt;!-- self-closing / void elements have no closing tag --&gt;
+                &lt;br&gt;
+                &lt;hr&gt;
+                &lt;input type="text"&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Void elements</h3>
+              <pre><code>
+                &lt;meta charset="UTF-8"&gt;
+                &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;img src="logo.png" alt="Logo"&gt;
+                &lt;input type="text"&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Boolean attributes</h3>
+              <pre><code>
+                &lt;input type="text" disabled&gt;
+                &lt;input type="checkbox" checked&gt;
+                &lt;video src="clip.mp4" controls autoplay muted loop&gt;&lt;/video&gt;
+                &lt;script src="app.js" defer&gt;&lt;/script&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Comments & the lang attribute</h3>
+              <pre><code>
+                &lt;!-- this is a comment, the browser ignores it --&gt;
+                &lt;html lang="en"&gt;
+                &lt;html lang="es"&gt;
+                &lt;p lang="fr"&gt;Bonjour!&lt;/p&gt; &lt;!-- override for one element --&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="text-structure">Text & structure</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Headings & paragraphs</h3>
+              <pre><code>
+                &lt;h1&gt;Main title&lt;/h1&gt;
+                &lt;h2&gt;Section title&lt;/h2&gt;
+                &lt;h3&gt;Subsection&lt;/h3&gt;
+                &lt;p&gt;A paragraph of text.&lt;/p&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Lists</h3>
+              <pre><code>
+                &lt;ul&gt;
+                  &lt;li&gt;Unordered item&lt;/li&gt;
+                  &lt;li&gt;Another item
+                    &lt;ul&gt;&lt;li&gt;Nested item&lt;/li&gt;&lt;/ul&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+
+                &lt;ol start="3" reversed&gt;
+                  &lt;li&gt;Ordered item&lt;/li&gt;
+                  &lt;li&gt;Another&lt;/li&gt;
+                &lt;/ol&gt;
+
+                &lt;dl&gt;
+                  &lt;dt&gt;HTML&lt;/dt&gt;
+                  &lt;dd&gt;The markup language of the web.&lt;/dd&gt;
+                &lt;/dl&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Links & images</h3>
+              <pre><code>
+                &lt;a href="https://example.com" target="_blank" rel="noopener"&gt;Visit site&lt;/a&gt;
+                &lt;a href="#section-2"&gt;Jump to section&lt;/a&gt;
+                &lt;a href="mailto:hi@example.com"&gt;Email us&lt;/a&gt;
+                &lt;a href="tel:+15551234567"&gt;Call us&lt;/a&gt;
+                &lt;img src="photo.jpg" alt="Description of photo" width="400" loading="lazy"&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Inline text semantics</h3>
+              <pre><code>
+                &lt;strong&gt;Important text&lt;/strong&gt;
+                &lt;em&gt;Stressed emphasis&lt;/em&gt;
+                &lt;code&gt;inline code&lt;/code&gt;
+                &lt;mark&gt;Highlighted text&lt;/mark&gt;
+                &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+                H&lt;sub&gt;2&lt;/sub&gt;O  x&lt;sup&gt;2&lt;/sup&gt;
+                &lt;time datetime="2026-09-18"&gt;September 18, 2026&lt;/time&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Blockquote, pre & figure</h3>
+              <pre><code>
+                &lt;blockquote cite="https://example.com"&gt;
+                  &lt;p&gt;A quoted passage.&lt;/p&gt;
+                &lt;/blockquote&gt;
+
+                &lt;pre&gt;&lt;code&gt;function greet() {
+                  return "hi";
+                }&lt;/code&gt;&lt;/pre&gt;
+
+                &lt;figure&gt;
+                  &lt;img src="chart.png" alt="Quarterly revenue chart"&gt;
+                  &lt;figcaption&gt;Revenue grew 12% in Q3.&lt;/figcaption&gt;
+                &lt;/figure&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Tables</h3>
+              <pre><code>
+                &lt;table&gt;
+                  &lt;caption&gt;Quiz results&lt;/caption&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;&lt;th scope="col"&gt;Name&lt;/th&gt;&lt;th scope="col"&gt;Score&lt;/th&gt;&lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                    &lt;tr&gt;&lt;th scope="row"&gt;Ana&lt;/th&gt;&lt;td&gt;92&lt;/td&gt;&lt;/tr&gt;
+                    &lt;tr&gt;&lt;th scope="row"&gt;Leo&lt;/th&gt;&lt;td&gt;87&lt;/td&gt;&lt;/tr&gt;
+                  &lt;/tbody&gt;
+                  &lt;tfoot&gt;
+                    &lt;tr&gt;&lt;td&gt;Average&lt;/td&gt;&lt;td&gt;89.5&lt;/td&gt;&lt;/tr&gt;
+                  &lt;/tfoot&gt;
+                &lt;/table&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="forms">Forms</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Basic form</h3>
+              <pre><code>
+                &lt;form action="/submit" method="POST"&gt;
+                  &lt;label for="email"&gt;Email&lt;/label&gt;
+                  &lt;input type="email" id="email" name="email" required&gt;
+
+                  &lt;label for="msg"&gt;Message&lt;/label&gt;
+                  &lt;textarea id="msg" name="msg" rows="4"&gt;&lt;/textarea&gt;
+
+                  &lt;button type="submit"&gt;Send&lt;/button&gt;
+                &lt;/form&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Common input types</h3>
+              <pre><code>
+                &lt;input type="text"&gt;
+                &lt;input type="password"&gt;
+                &lt;input type="number" min="0" max="10"&gt;
+                &lt;input type="range" min="0" max="100" step="5"&gt;
+                &lt;input type="color"&gt;
+                &lt;input type="tel"&gt;
+                &lt;input type="url"&gt;
+                &lt;input type="search"&gt;
+                &lt;input type="checkbox" checked&gt;
+                &lt;input type="radio" name="plan"&gt;
+                &lt;input type="date"&gt;
+                &lt;input type="time"&gt;
+                &lt;input type="file" accept="image/*" multiple&gt;
+                &lt;select&gt;
+                  &lt;option value="a"&gt;Option A&lt;/option&gt;
+                  &lt;option value="b" selected&gt;Option B&lt;/option&gt;
+                &lt;/select&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Grouping & autocomplete</h3>
+              <pre><code>
+                &lt;fieldset&gt;
+                  &lt;legend&gt;Shipping address&lt;/legend&gt;
+                  &lt;label for="city"&gt;City&lt;/label&gt;
+                  &lt;input id="city" name="city" list="cities" autocomplete="address-level2"&gt;
+                  &lt;datalist id="cities"&gt;
+                    &lt;option value="Barcelona"&gt;
+                    &lt;option value="Madrid"&gt;
+                  &lt;/datalist&gt;
+                &lt;/fieldset&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Validation attributes</h3>
+              <pre><code>
+                &lt;input type="text" required minlength="3" maxlength="20"&gt;
+                &lt;input type="number" min="1" max="100" step="1"&gt;
+                &lt;input type="text" pattern="[A-Za-z]+" title="Letters only"&gt;
+                &lt;input type="email" required&gt;
+
+                &lt;style&gt;
+                  input:invalid { border-color: red; }
+                  input:valid { border-color: green; }
+                &lt;/style&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="semantic">Semantic layout</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Page regions</h3>
+              <pre><code>
+                &lt;header&gt;Site header / logo / nav&lt;/header&gt;
+                &lt;nav&gt;Main navigation&lt;/nav&gt;
+                &lt;main&gt;
+                  &lt;article&gt;
+                    &lt;section&gt;A self-contained chunk of content&lt;/section&gt;
+                  &lt;/article&gt;
+                  &lt;aside&gt;Related links, sidebar&lt;/aside&gt;
+                &lt;/main&gt;
+                &lt;footer&gt;Copyright, links&lt;/footer&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">div vs span</h3>
+              <pre><code>
+                &lt;div class="card"&gt;
+                  &lt;span class="badge"&gt;New&lt;/span&gt; Block of content
+                &lt;/div&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Disclosure & dialog</h3>
+              <pre><code>
+                &lt;details&gt;
+                  &lt;summary&gt;Click to expand&lt;/summary&gt;
+                  &lt;p&gt;Hidden content revealed on click.&lt;/p&gt;
+                &lt;/details&gt;
+
+                &lt;dialog id="modal"&gt;
+                  &lt;p&gt;Are you sure?&lt;/p&gt;
+                  &lt;button onclick="document.getElementById('modal').close()"&gt;Close&lt;/button&gt;
+                &lt;/dialog&gt;
+                &lt;button onclick="document.getElementById('modal').showModal()"&gt;Open&lt;/button&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Address & article metadata</h3>
+              <pre><code>
+                &lt;article&gt;
+                  &lt;h2&gt;Blog post title&lt;/h2&gt;
+                  &lt;p&gt;By &lt;address style="display:inline"&gt;Ana Lopez&lt;/address&gt;&lt;/p&gt;
+                  &lt;time datetime="2026-09-01"&gt;September 1, 2026&lt;/time&gt;
+                  &lt;p&gt;Post content...&lt;/p&gt;
+                &lt;/article&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="media">Media & embedding</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Video & audio</h3>
+              <pre><code>
+                &lt;video width="480" controls poster="thumb.jpg"&gt;
+                  &lt;source src="clip.mp4" type="video/mp4"&gt;
+                  &lt;track kind="captions" src="captions.vtt" srclang="en" label="English"&gt;
+                  Your browser doesn't support video.
+                &lt;/video&gt;
+
+                &lt;audio controls&gt;
+                  &lt;source src="song.mp3" type="audio/mpeg"&gt;
+                &lt;/audio&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Responsive images with srcset & picture</h3>
+              <pre><code>
+                &lt;img
+                  src="photo-800.jpg"
+                  srcset="photo-400.jpg 400w, photo-800.jpg 800w, photo-1200.jpg 1200w"
+                  sizes="(max-width: 600px) 400px, 800px"
+                  alt="Mountain view"&gt;
+
+                &lt;picture&gt;
+                  &lt;source media="(min-width: 800px)" srcset="wide.jpg"&gt;
+                  &lt;source type="image/webp" srcset="photo.webp"&gt;
+                  &lt;img src="photo.jpg" alt="Mountain view"&gt;
+                &lt;/picture&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Inline SVG, canvas, iframe</h3>
+              <pre><code>
+                &lt;svg width="24" height="24" viewBox="0 0 24 24"&gt;
+                  &lt;circle cx="12" cy="12" r="10" fill="currentColor" /&gt;
+                &lt;/svg&gt;
+
+                &lt;canvas id="chart" width="300" height="150"&gt;&lt;/canvas&gt;
+
+                &lt;iframe src="https://example.com" width="600" height="400"
+                        loading="lazy" title="Embedded content"&gt;&lt;/iframe&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="storage-apis">Browser storage & APIs</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">localStorage & sessionStorage</h3>
+              <pre><code>
+                localStorage.setItem('theme', 'dark');
+                const theme = localStorage.getItem('theme');
+                localStorage.removeItem('theme');
+
+                sessionStorage.setItem('draft', JSON.stringify({ text: 'hi' }));
+                const draft = JSON.parse(sessionStorage.getItem('draft'));
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Drag and drop</h3>
+              <pre><code>
+                &lt;div draggable="true" ondragstart="event.dataTransfer.setData('text', 'card-1')"&gt;
+                  Drag me
+                &lt;/div&gt;
+                &lt;div ondrop="drop(event)" ondragover="event.preventDefault()"&gt;
+                  Drop here
+                &lt;/div&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Resource hints & lazy loading</h3>
+              <pre><code>
+                &lt;link rel="preload" href="font.woff2" as="font" crossorigin&gt;
+                &lt;link rel="preconnect" href="https://api.example.com"&gt;
+                &lt;img src="below-the-fold.jpg" alt="..." loading="lazy"&gt;
+                &lt;script src="app.js" defer&gt;&lt;/script&gt;
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="accessibility">Advanced & accessibility</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">data-* attributes</h3>
+              <pre><code>
+                &lt;button data-user-id="42" data-role="admin"&gt;Edit&lt;/button&gt;
+
+                &lt;script&gt;
+                  const btn = document.querySelector('button');
+                  console.log(btn.dataset.userId); // "42"
+                &lt;/script&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">ARIA & accessibility</h3>
+              <pre><code>
+                &lt;button aria-label="Close dialog"&gt;&amp;times;&lt;/button&gt;
+                &lt;div role="alert"&gt;Your changes were saved&lt;/div&gt;
+                &lt;nav aria-current="page"&gt;...&lt;/nav&gt;
+                &lt;img src="chart.png" alt="" role="presentation"&gt;
+                &lt;button aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;
+                &lt;input aria-describedby="pw-help"&gt;
+                &lt;p id="pw-help"&gt;Must be 8+ characters&lt;/p&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Meta tags for SEO & sharing</h3>
+              <pre><code>
+                &lt;meta name="description" content="Short page summary for search results"&gt;
+                &lt;meta property="og:title" content="Page title"&gt;
+                &lt;meta property="og:image" content="preview.jpg"&gt;
+                &lt;meta property="og:type" content="website"&gt;
+                &lt;meta name="twitter:card" content="summary_large_image"&gt;
+                &lt;link rel="canonical" href="https://example.com/page"&gt;
+                &lt;link rel="icon" href="favicon.ico"&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Structured data (JSON-LD)</h3>
+              <pre><code>
+                &lt;script type="application/ld+json"&gt;
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Article",
+                  "headline": "How to learn HTML",
+                  "datePublished": "2026-09-01"
+                }
+                &lt;/script&gt;
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">&lt;template&gt; and web components</h3>
+              <pre><code>
+                &lt;template id="row-template"&gt;
+                  &lt;tr&gt;&lt;td class="name"&gt;&lt;/td&gt;&lt;td class="score"&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;/template&gt;
+
+                &lt;my-widget title="Hello"&gt;&lt;/my-widget&gt;
+
+                &lt;script&gt;
+                  class MyWidget extends HTMLElement {
+                    connectedCallback() {
+                      const shadow = this.attachShadow({ mode: 'open' });
+                      shadow.innerHTML = `&lt;style&gt;p{color:blue}&lt;/style&gt;
+                        &lt;p&gt;${this.getAttribute('title')}&lt;/p&gt;`;
+                    }
+                  }
+                  customElements.define('my-widget', MyWidget);
+                &lt;/script&gt;
+              </code></pre>
+          </article>
+
+      <section>
+        <p class="firma"> Spread the <span class="corazon" role="img" aria-label="love">❤</span> by Roger </p>
+      </section>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/data.js"></script>
+  </body>
+</html>
