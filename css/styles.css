@@ -815,6 +815,107 @@ body.dark .cheatsheet-icon {
   padding: 4px;
 }
 
+.recursosTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 0 15px;
+  margin-bottom: var(--space-lg);
+}
+
+
+.tabRecurso {
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--secondary);
+  background: transparent;
+  border: 2px solid var(--gray-100);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.tabRecurso:hover {
+  background: var(--highlight);
+  border-color: var(--highlight);
+}
+.tabRecurso:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+.tabRecurso.tabActiva {
+  color: var(--white);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+
+.recursosPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+  padding: 0 15px;
+  margin-bottom: var(--space-lg);
+}
+
+
+.tarjetaRecurso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(135deg, var(--gray-100), var(--gray-100)) border-box;
+  transition: transform var(--transition-base);
+  animation: aparecerRecurso var(--transition-slow) both;
+}
+.tarjetaRecurso:hover {
+  transform: translateY(-4px);
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+}
+.tarjetaRecursoTitulo {
+  margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-black);
+  color: var(--secondary);
+}
+.tarjetaRecursoNota {
+  margin: 0;
+  flex-grow: 1; 
+  font-size: var(--fs-md);
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+.tarjetaRecursoUrl {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--primary);
+}
+
+@keyframes aparecerRecurso {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabRecurso,
+  .tarjetaRecurso {
+    transition: none;
+    animation: none;
+  }
+}
+
+
 @media (max-width: 768px) {
   .botonMenu {
     display: flex;
@@ -856,6 +957,17 @@ body.dark .cheatsheet-icon {
   .listaPuntos li::before {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .recursosTabs {
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    padding-bottom: var(--space-sm);
+  }
+  .tabRecurso {
+    flex-shrink: 0;
   }
 }
 
