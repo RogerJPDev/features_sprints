@@ -111,20 +111,21 @@ body.dark #toggle:hover{
 body.dark .icon-sun  { display: none; }
 body.dark .icon-moon { display: block; }
 
-
 /* llistat de class amb les que treballar */
 .encabezado {
   position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 110;
+  height: var(--bar-height);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  min-height: var(--bar-height);
+  height: var(--bar-height);
+  box-sizing: border-box;
   padding: var(--space-lg);
   border-bottom: var(--border-subtle);
   background: var(--secondary);
   box-shadow: var(--shadow-md);
-  z-index: 100;
 }
 .listaMenu {
   display: flex;
@@ -400,6 +401,11 @@ body.dark .icon-moon { display: block; }
     linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(135deg, var(--primary), var(--accent)) border-box;
 }
+
+.tarjetaPlana pre {
+  overflow-x: auto;
+}
+
 .polaroid {
   width: 400px;
   max-width: calc(100% - 2rem);
@@ -650,11 +656,35 @@ body.dark .icon-moon { display: block; }
 
 .navbar {
   position: sticky;
-  top: 0;
+  display:flex;
+  top: var(--bar-height);
   z-index: 100;
-  background: white;
+  background: var(--secondary)
 /*missing matching colors & darkmode*/
 
+}
+
+[id] {
+  scroll-margin-top: calc(var(--bar-height) + 90px); 
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;          
+  justify-content: center;
+  gap: var(--space-sm) var(--space-md);   
+  padding: var(--space-xs) var(--space-side);
+  list-style: none;
+}
+
+.navbar a {
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  white-space: nowrap;     
+}
+
+.navbar a:hover {
+  color: var(--highlight);
 }
 
 body.dark .encabezado,

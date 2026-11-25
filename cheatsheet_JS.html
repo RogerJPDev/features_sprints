@@ -21,13 +21,13 @@
         <nav class="navbar">
           <div>
             <ul>
-              <li><a href= #>Variables & types</a></li>
-              <li><a href= #>Operators & control flow</a></li>
-              <li><a href=#>Functions</a></li>
-              <li><a href=#>Arrays & objects</a></li>
-              <li><a href=#>The DOM & events</a></li>
-              <li><a href=#>Asynchronous JavaScript</a></li>
-              <li><a href=#>Advanced & ES6+</a></li>
+              <li><a class="titulillo" href="#variables">Variables & types</a></li>
+              <li><a class="titulillo" href="#operators">Operators & control flow</a></li>
+              <li><a class="titulillo" href="#functions">Functions</a></li>
+              <li><a class="titulillo" href="#arrays-objects">Arrays & objects</a></li>
+              <li><a class="titulillo" href="#dom-events">The DOM & events</a></li>
+              <li><a class="titulillo" href="#async">Asynchronous JavaScript</a></li>
+              <li><a class="titulillo" href="#advanced">Advanced & ES6+</a></li>
             </ul>
           </div>
         </nav>
@@ -35,23 +35,544 @@
           <h1 class="presentacion barraTitulo">JavaScript</h1>
             <p class="textoLargo">Aqui tienes una guía rápida de JavaScript moderno: variables, tipos, template strings, operadores, control de flujo, funciones, arrays/strings/números, módulos, DOM, asincronía (promesas/fetch), fechas, storage y objetos/JSON</p>
         </section>
+           <h2 class="titulillo" id="variables">Variables & types</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Declaring variables</h3>
+              <pre><code>
+                const name = "Ada";   // can't be reassigned
+                let age = 30;         // can be reassigned
+                age = 31;
 
+                var oldStyle = true;  // legacy, avoid in new code
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Primitive types</h3>
+              <pre><code>
+                typeof "hello"       // "string"
+                typeof 42             // "number"
+                typeof true            // "boolean"
+                typeof undefined       // "undefined"
+                typeof null            // "object" (a famous JS quirk)
+                typeof Symbol()          // "symbol"
+                typeof 10n                // "bigint"
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Scope & hoisting</h3>
+              <pre><code>
+                console.log(x); // undefined, not an error — hoisted
+                var x = 5;
 
+                console.log(y); // ReferenceError — in the "temporal dead zone"
+                let y = 5;
 
+                if (true) {
+                  let blockScoped = 1;
+                }
+                console.log(typeof blockScoped); // "undefined"
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Truthy, falsy & coercion</h3>
+              <pre><code>
+                if ("") console.log("never runs");
+                if ("0") console.log("runs — non-empty string is truthy");
+                if ([]) console.log("runs — empty array is truthy");
 
+                Number("42");     // 42
+                String(42);        // "42"
+                Boolean(0);          // false
+                1 + "1";              // "11" (number coerced to string)
+                "5" - 1;               // 4  (string coerced to number)
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Template literals</h3>
+              <pre><code>
+                const name = "Ada";
+                const greeting = `Hello, ${name}! You are ${30 + 1} years old.`;
 
+                const multiline = `
+                  line one
+                  line two
+                `;
+              </code></pre>
+          </article>
 
+        <h2 class="titulillo" id="operators">Operators & control flow</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Comparison</h3>
+              <pre><code>
+                1 === 1        // true
+                1 === "1"      // false (different types)
+                1 == "1"       // true  (type coercion, avoid relying on this)
+                null ?? "default"   // "default" — nullish coalescing
+                user?.address?.city // optional chaining, safe on undefined
+                user?.getName?.()   // optional call, safe if method doesn't exist
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Logical operators & short-circuiting</h3>
+              <pre><code>
+                true &amp;&amp; "yes"    // "yes" (returns second value if first is truthy)
+                false &amp;&amp; "yes"   // false (short-circuits, "yes" never evaluated)
+                null || "default" // "default"
+                0 || "fallback"    // "fallback" — 0 is falsy, use ?? if 0 is valid
+                const isAdmin = user &amp;&amp; user.role === "admin";
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Conditionals</h3>
+              <pre><code>
+                if (age &gt;= 18) {
+                  console.log("adult");
+                } else if (age &gt;= 13) {
+                  console.log("teen");
+                } else {
+                  console.log("child");
+                }
 
+                const label = age &gt;= 18 ? "adult" : "minor"; // ternary
 
+                switch (status) {
+                  case "ok": handleOk(); break;
+                  case "error": handleError(); break;
+                  default: handleUnknown();
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Loops</h3>
+              <pre><code>
+                for (let i = 0; i &lt; 5; i++) { console.log(i); }
 
+                for (const item of ["a", "b", "c"]) { console.log(item); }
 
+                for (const key in { a: 1, b: 2 }) { console.log(key); }
 
+                let n = 5;
+                while (n &gt; 0) { n--; }
 
+                outer: for (let i = 0; i &lt; 3; i++) {
+                  for (let j = 0; j &lt; 3; j++) {
+                    if (j === 1) continue outer; // labeled loop control
+                  }
+                }
+              </code></pre>
+          </article>
 
+        <h2 class="titulillo" id="functions">Functions</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Function forms</h3>
+              <pre><code>
+                function add(a, b) {
+                  return a + b;
+                }
 
+                const multiply = function (a, b) {
+                  return a * b;
+                };
 
+                const square = (x) =&gt; x * x;               // arrow, implicit return
+                const greet = (name) =&gt; { return `Hi ${name}`; }; // explicit return
 
+                function withDefault(x = 10) { return x; }
+                function sum(...numbers) { return numbers.reduce((a, b) =&gt; a + b, 0); }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Arrow functions & this</h3>
+              <pre><code>
+                class Timer {
+                  seconds = 0;
+                  start() {
+                    setInterval(() =&gt; {
+                      this.seconds++; // "this" correctly refers to the Timer instance
+                    }, 1000);
+                  }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">call, apply & bind</h3>
+              <pre><code>
+                function greet() { return `Hi, ${this.name}`; }
+                const user = { name: "Ada" };
 
+                greet.call(user);          // "Hi, Ada" — args passed individually
+                greet.apply(user, []);     // same, but args passed as an array
+                const bound = greet.bind(user);
+                bound();                    // "Hi, Ada" — returns a new function, permanently bound
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Closures</h3>
+              <pre><code>
+                function makeCounter() {
+                  let count = 0;
+                  return function () {
+                    count++;
+                    return count;
+                  };
+                }
+
+                const counter = makeCounter();
+                counter(); // 1
+                counter(); // 2
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Currying & partial application</h3>
+              <pre><code>
+                const multiply = (a) =&gt; (b) =&gt; a * b;
+                const double = multiply(2);
+                double(5); // 10
+
+                function curry(fn) {
+                  return (...args) =&gt;
+                    args.length &gt;= fn.length
+                      ? fn(...args)
+                      : (...more) =&gt; curry(fn)(...args, ...more);
+                }
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="arrays-objects">Arrays & objects</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Array methods: transforming</h3>
+              <pre><code>
+                const nums = [1, 2, 3, 4, 5];
+
+                nums.map(n =&gt; n * 2);          // [2,4,6,8,10]
+                nums.filter(n =&gt; n % 2 === 0); // [2,4]
+                nums.reduce((sum, n) =&gt; sum + n, 0); // 15
+                nums.flatMap(n =&gt; [n, n * 10]); // [1,10,2,20,...]
+                [[1,2],[3,[4]]].flat(2);          // [1,2,3,4]
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Array methods: finding & checking</h3>
+              <pre><code>
+                nums.find(n =&gt; n &gt; 3);          // 4
+                nums.findIndex(n =&gt; n &gt; 3);      // 3
+                nums.some(n =&gt; n &gt; 4);            // true
+                nums.every(n =&gt; n &gt; 0);            // true
+                nums.includes(3);                    // true
+                [...nums].sort((a, b) =&gt; a - b);       // copy, then sort ascending
+                [...nums].reverse();
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">String methods</h3>
+              <pre><code>
+                "  hi  ".trim();               // "hi"
+                "hello".toUpperCase();          // "HELLO"
+                "hello".slice(1, 3);              // "el"
+                "a,b,c".split(",");                 // ["a","b","c"]
+                ["a","b"].join("-");                  // "a-b"
+                "hello".includes("ell");                // true
+                "hello".replace("l", "L");                // "heLlo"
+                "hello".replaceAll("l", "L");               // "heLLo"
+                "5".padStart(3, "0");                        // "005"
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Destructuring & spread</h3>
+              <pre><code>
+                const [first, second, ...rest] = [1, 2, 3, 4];
+
+                const { name, age } = { name: "Ada", age: 30 };
+                const { name: userName = "Anon" } = {}; // rename + default
+
+                const merged = { ...defaults, ...overrides };
+                const copy = [...originalArray];
+
+                function printUser({ name, age }) { console.log(name, age); }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Objects & JSON</h3>
+              <pre><code>
+                const user = {
+                  name: "Ada",
+                  age: 30,
+                  greet() { return `Hi, I'm ${this.name}`; }
+                };
+
+                Object.keys(user);
+                Object.values(user);
+                Object.entries(user).forEach(([key, val]) =&gt; console.log(key, val));
+                Object.freeze(user); // shallow-locks the object
+
+                JSON.stringify(user);            // object -&gt; string
+                JSON.parse('{"a":1}');            // string -&gt; object
+                structuredClone(user);              // deep copy, no JSON round-trip needed
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Map & Set</h3>
+              <pre><code>
+                const scores = new Map();
+                scores.set("Ada", 92);
+                scores.get("Ada"); // 92
+                scores.has("Ada"); // true
+                [...scores.keys()];
+
+                const unique = new Set([1, 2, 2, 3]); // {1, 2, 3}
+                unique.has(2); // true
+                [...unique];    // [1, 2, 3]
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="dom-events">The DOM & events</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Selecting & changing elements</h3>
+              <pre><code>
+                const el = document.querySelector('.card');
+                const all = document.querySelectorAll('li');
+
+                el.textContent = "New text";
+                el.innerHTML = "&lt;strong&gt;Bold&lt;/strong&gt;";
+                el.classList.add('active');
+                el.classList.toggle('open');
+                el.style.color = 'red';
+                el.setAttribute('data-id', '42');
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Creating & inserting elements</h3>
+              <pre><code>
+                const li = document.createElement('li');
+                li.textContent = "New item";
+                document.querySelector('ul').appendChild(li);
+                document.querySelector('ul').prepend(li);
+                el.before(newEl);
+                el.after(newEl);
+                el.remove();
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Event listeners</h3>
+              <pre><code>
+                button.addEventListener('click', (event) =&gt; {
+                  console.log('clicked', event.target);
+                });
+
+                form.addEventListener('submit', (event) =&gt; {
+                  event.preventDefault(); // stop the page reload
+                  // ...handle the form
+                });
+
+                button.removeEventListener('click', handler);
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Event delegation</h3>
+              <pre><code>
+                document.querySelector('ul').addEventListener('click', (event) =&gt; {
+                  if (event.target.matches('li')) {
+                    console.log('clicked item:', event.target.textContent);
+                  }
+                });
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Custom events</h3>
+              <pre><code>
+                const event = new CustomEvent('user-updated', { detail: { id: 42 } });
+                document.dispatchEvent(event);
+
+                document.addEventListener('user-updated', (e) =&gt; {
+                  console.log(e.detail.id); // 42
+                });
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="async">Asynchronous JavaScript</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Promises</h3>
+              <pre><code>
+                const promise = new Promise((resolve, reject) =&gt; {
+                  setTimeout(() =&gt; resolve("done"), 1000);
+                });
+
+                promise
+                  .then(result =&gt; console.log(result))
+                  .catch(error =&gt; console.error(error))
+                  .finally(() =&gt; console.log("always runs"));
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">async / await</h3>
+              <pre><code>
+                async function getUser(id) {
+                  try {
+                    const response = await fetch(`/api/users/${id}`);
+                    if (!response.ok) throw new Error('Request failed');
+                    const data = await response.json();
+                    return data;
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">fetch with options</h3>
+              <pre><code>
+                const response = await fetch('/api/users', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ name: 'Ada' }),
+                });
+                const data = await response.json();
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Combining promises</h3>
+              <pre><code>
+                const [users, posts] = await Promise.all([
+                  fetch('/api/users').then(r =&gt; r.json()),
+                  fetch('/api/posts').then(r =&gt; r.json()),
+                ]);
+
+                Promise.race([fetchData(), timeout(3000)]); // first to settle wins
+                Promise.allSettled([p1, p2]); // waits for all, never rejects
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">The event loop, briefly</h3>
+              <pre><code>
+                console.log('1');
+                setTimeout(() =&gt; console.log('2'), 0);
+                Promise.resolve().then(() =&gt; console.log('3'));
+                console.log('4');
+                // logs: 1, 4, 3, 2
+              </code></pre>
+          </article>
+
+        <h2 class="titulillo" id="advanced">Advanced & ES6+</h2>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Classes</h3>
+              <pre><code>
+                class Animal {
+                  #secret = 'hidden'; // private field
+                  constructor(name) {
+                    this.name = name;
+                  }
+                  speak() {
+                    return `${this.name} makes a sound.`;
+                  }
+                  static create(name) { return new Animal(name); }
+                }
+
+                class Dog extends Animal {
+                  speak() {
+                    return `${super.speak()} Specifically, a bark.`;
+                  }
+                }
+
+                new Dog("Rex").speak();
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Prototypes</h3>
+              <pre><code>
+                function Animal(name) { this.name = name; }
+                Animal.prototype.speak = function () {
+                  return `${this.name} makes a sound.`;
+                };
+
+                const rex = new Animal("Rex");
+                rex.speak();
+                Object.getPrototypeOf(rex) === Animal.prototype; // true
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Modules</h3>
+              <pre><code>
+                // math.js
+                export function add(a, b) { return a + b; }
+                export default function multiply(a, b) { return a * b; }
+
+                // main.js
+                import multiply, { add } from './math.js';
+                import * as math from './math.js';
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Error handling</h3>
+              <pre><code>
+                try {
+                  riskyOperation();
+                } catch (error) {
+                  console.error('Something went wrong:', error.message);
+                } finally {
+                  cleanup();
+                }
+
+                class ValidationError extends Error {}
+                throw new ValidationError('Invalid input');
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Debounce & throttle</h3>
+              <pre><code>
+                function debounce(fn, delay) {
+                  let timer;
+                  return (...args) =&gt; {
+                    clearTimeout(timer);
+                    timer = setTimeout(() =&gt; fn(...args), delay);
+                  };
+                }
+
+                input.addEventListener('input', debounce(handleSearch, 300));
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Memoization</h3>
+              <pre><code>
+                function memoize(fn) {
+                  const cache = new Map();
+                  return (...args) =&gt; {
+                    const key = JSON.stringify(args);
+                    if (!cache.has(key)) cache.set(key, fn(...args));
+                    return cache.get(key);
+                  };
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Generators & async iteration</h3>
+              <pre><code>
+                function* idGenerator() {
+                  let id = 1;
+                  while (true) yield id++;
+                }
+                const gen = idGenerator();
+                gen.next().value; // 1
+                gen.next().value; // 2
+
+                async function* fetchPages(url) {
+                  let next = url;
+                  while (next) {
+                    const res = await fetch(next).then(r =&gt; r.json());
+                    yield res.items;
+                    next = res.nextPage;
+                  }
+                }
+              </code></pre>
+          </article>
+          <article class="tarjetaPlana">
+            <h3 class="tituloLaboral">Regex basics</h3>
+              <pre><code>
+                const re = /^\d{3}-\d{4}$/;
+                re.test("555-1234");            // true
+                "555-1234".match(/\d+/g);        // ["555","1234"]
+                "2026-09-18".replace(/-/g, "/");  // "2026/09/18"
+              </code></pre>
+          </article>
       <section>
         <p class="firma"> Spread the <span class="corazon" role="img" aria-label="love">❤</span> by Roger </p>
       </section>
